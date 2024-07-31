@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Executor</title>
+</head>
+<body>
+    <script>
+        // Your JavaScript code goes here
+        function validateAndExtractUrl(url) {
+            const regex = /https:\/\/[^?]+(?:\?[^&amp;]*&amp;)?expiry=(\d+)/;
+            const match = url.match(regex);
+            if (match) {
+                return { url: match[0], expiry: match[1] };
+            } else {
+                return { error: 'No video found.' };
+            }
+        }
+        const videoUrl = 'https://iii286.video-delivery.net/u5kj7frubxclsdgge5o6amiyjjjno73vyt55n2npmj57u5ryi5y65lucfnpa/4sn4oy09wl~uu3dGGF6z2?token=85ilveodemggxu56a2n626l7&amp;expiry=1722220923037';
+        const result = validateAndExtractUrl(videoUrl);
+        document.body.innerText = JSON.stringify(result);
+    </script>
+</body>
+</html>
